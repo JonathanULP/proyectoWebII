@@ -37,7 +37,7 @@
                                 <input type="text" name="nombre" id="nombre" minlength="3" maxlength="30" required
                                 id="nombre"
                                 title="Ingresar nombre de la escuela"
-                                value="{{old('nombre')}}"
+                                value="{{old('nombre') ?? ($escuela ? $escuela->nombre : '')}}"
                                 placeholder="Nombre de la escuela"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('nombre')
@@ -50,7 +50,7 @@
                                     <strong>*</strong> </label>
 
                                 <input type="text" name="cue" id="cue" maxlength="9" required
-                                value="{{old('cue')}}"
+                                value="{{old('cue') ?? ($escuela ? $escuela->cue : '')}}"
                                 placeholder="CUE"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('cue')
@@ -262,9 +262,9 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="tipo_secundaria" class="block text-sm font-medium text-gray-700">Tipo de Secundaria
                                     <strong>*</strong></label>
-                                <select name="tipo_secundario_id"
+                                <select name="tipo_secundaria_id"
                                 id="tipo_secundaria"
-                                value="{{old('tipo_secundario')}}"
+                                value="{{old('tipo_secundaria')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @foreach($t_secundaria as $ts)
                                     <option value="{{$ts->id}}"> {{ucwords($ts->nombre)}}</option>
@@ -324,8 +324,8 @@
                         </a>
 
                         <button type="submit"
-                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                            AGREGAR
+                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                            EDITAR
                         </button>
                     </div>
                 </div>

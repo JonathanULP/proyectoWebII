@@ -21,8 +21,8 @@ class EscuelaController extends Controller
 
     public function index()
     {
-        $escuela = Escuela::all();
-        return view('escuela.index',compact('escuela'));
+        $escuelas = Escuela::all();
+        return view('escuela.index',compact('escuelas'));
     }
 
 
@@ -52,12 +52,12 @@ class EscuelaController extends Controller
 
     public function show(Escuela $escuela)
     {
-        //
+        return view('escuela.show',compact('escuela'));
     }
 
     public function edit(Escuela $escuela)
     {
-        //
+        return view('escuela.edit');
     }
 
 

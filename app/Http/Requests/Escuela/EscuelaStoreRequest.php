@@ -38,7 +38,7 @@ class EscuelaStoreRequest extends FormRequest
             'ambito_id' => ['required','numeric'],
             'categoria_id' => ['required','numeric'],
             'tipo_jornada_id' => ['required','numeric'],
-            'tipo_secundaria_id' => ['numeric'],
+            'tipo_secundario_id' => ['numeric'],
             'localidad_id' => ['required','numeric'],
 
         ];
@@ -90,7 +90,7 @@ class EscuelaStoreRequest extends FormRequest
             'ambito_id.required' => 'El ambito es obligatorio',
             'ambito_id.numeric' => 'El valor debe ser numerico',
 
-            'tipo_secundaria_id.numeric' => 'El valor debe ser numerico',
+            'tipo_secundario_id.numeric' => 'El valor debe ser numerico',
 
             'localidad_id.required' => 'La localidad es obligatoria',
             'localidad_id.numeric' => 'El valor debe ser numerico',

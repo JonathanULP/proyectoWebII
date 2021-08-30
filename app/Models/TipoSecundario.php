@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TipoSecundario extends Model
 {
     use HasFactory,SoftDeletes;
+
+    protected $table = 'tipo_secundarios';
 }
