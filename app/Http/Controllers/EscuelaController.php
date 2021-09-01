@@ -15,13 +15,14 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\Escuela\EscuelaStoreRequest;
+use App\Http\Requests\Escuela\EscuelaUpdateRequest;
 
 class EscuelaController extends Controller
 {
 
     public function index()
     {
-        $escuelas = Escuela::all();
+        $escuelas = Escuela::cursorPaginate(5);
         return view('escuela.index',compact('escuelas'));
     }
 
@@ -57,18 +58,31 @@ class EscuelaController extends Controller
 
     public function edit(Escuela $escuela)
     {
-        return view('escuela.edit');
+        $user = User::all();
+        $sectores = Sector::all();
+        $tipos = Tipo::all();
+        $niveles = Nivel::all();
+        $ambitos = Ambito::all();
+        $categorias = Categoria::all();
+        $t_jornada = TipoJornada::all();
+        $t_secundaria = TipoSecundario::all();
+        $localidades = Localidad::all();
+
+
+        return view('escuela.edit',compact('escuela','user','sectores','tipos','niveles','ambitos','categorias','t_jornada','t_secundaria','localidades'));
     }
 
 
-    public function update(Request $request, Escuela $escuela)
+    public function update(EscuelaUpdateRequest $request, Escuela $escuela)
     {
-        //
+        $escuela->update($request->validated());
+        return redirect()->route('escuela.index')->with('success','Escuela editada correctamente');
     }
 
 
     public function destroy(Escuela $escuela)
     {
-        //
+        $escuela->delete();
+        return redirect()->route('escuela.index')->with('success','Escuela eliminada correctamente');
     }
 }

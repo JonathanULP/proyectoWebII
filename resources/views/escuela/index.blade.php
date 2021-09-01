@@ -13,14 +13,18 @@
 
 
 <div class="container mx-auto px-4 sm:px-8">
+
     <div class="py-8">
-      <div>
+
+    <header class="grid grid-cols-12 gap-6 my-4 mx-2">
+      <div class="col-span-6">
         <h2 class="text-2xl font-semibold leading-tight">Escuelas</h2>
       </div>
-      <div class="text-right">
+
+      <div class="col-span-6 text-right">
         <a class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" href="{{route('escuela.create')}}"><i class="fas fa-plus"></i> Nueva Escuela</a>
       </div>
-
+    </header>
 
       <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
         <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
@@ -50,7 +54,7 @@
                 </th>
 
                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                 Email
+                 Correo Electrónico
                 </th>
 
                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
@@ -308,7 +312,7 @@
 
             </tbody>
           </table>
-
+          {{ $escuelas->links() }}
         </div>
       </div>
     </div>

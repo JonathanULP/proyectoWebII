@@ -21,8 +21,8 @@ class EscuelaStoreRequest extends FormRequest
     {
         return [
 
-            'nombre' => ['required','min:3','max:30'],
-            'cue' => ['required','min:9','max:9','regex:/^[0-9]+/'],
+            'nombre' => ['required','min:3','min:3','max:30'],
+            'cue' => ['required','min:9','max:9','regex:/^[0-9]+/','unique:escuelas'],
             'direccion' => ['required'],
             'bilingue' => ['required'],
             'telefono' => ['required','min:6','max:10'],
@@ -53,6 +53,7 @@ class EscuelaStoreRequest extends FormRequest
             'nombre.max' => 'El nombre es demasiado largo.',
 
             'cue.required' => 'El cue de la institucion es obligatorio',
+            'cue.unique' => 'El cue ya se encuentra en uso.',
             'cue.min' => 'El cue es demasiado corto',
             'cue.max' => 'El cue es demasiado largo',
 

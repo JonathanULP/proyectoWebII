@@ -9,7 +9,7 @@
 
 <div class="bg-white w-full rounded-lg shadow-xl">
 
-    <div class="md:grid md:grid-cols-2 hover:text-blue-900 md:space-y-0 space-y-1 py-7 border-b rounded ml-8 pl-8">
+    <div class="md:grid md:grid-cols-2 hover:text-blue-900 md:space-y-0 space-y-1 py-7 border-b rounded pl-8">
         <h2 class="text-2xl">
             Profesor: {{ $docente->nombre}} {{$docente->apellido}}
         </h2>
@@ -67,7 +67,7 @@
     </div>
 </div>
 
-{{--MODAL PARA ELIMINAR SUBSCRIPCION--}}
+{{--MODAL PARA ELIMINAR --}}
 
 <div role="dialog" id="modal" style="display: none;">
     <div id="modal-content" style="z-index: 999999;"
@@ -87,16 +87,19 @@
                     @csrf
                     @method('DELETE')
                     <!--footer-->
-                    <div
-                        class=" flex items-center justify-end p-2 border-t border-solid border-gray-200 rounded-b">
-                        <button  name="close-modal"
+                    <div class=" flex items-center justify-end p-2 border-t border-solid border-gray-200 rounded-b">
+
+                        <a name="close-modal"
+                            href="{{ route('docente.index') }}"
                             class=" mr-2 sm:mr-4 inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                             Cancelar
-                        </button>
+                        </a>
+
                         <button type="submit"
                             class="inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                             Eliminar
                         </button>
+
                     </div>
                 </form>
             </div>

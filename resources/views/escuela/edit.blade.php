@@ -19,9 +19,9 @@
 
         <div class="mt-5 md:mt-0 md:col-span-2">
 
-            <form action="{{route('escuela.store')}}" method="POST" autocomplete="off">
+            <form action="{{route('escuela.update',$escuela)}}" method="POST" autocomplete="off">
                 @csrf
-                @method('post')
+                @method('PUT')
 
                 <div class="shadow sm:rounded-md ">
                     <div class="px-2 pb-8 bg-white sm:p-6 rounded-t-md ">
@@ -63,7 +63,7 @@
                                     <strong>*</strong> </label>
 
                                 <input type="text" name="direccion" id="direccion" maxlength="30" required
-                                value="{{old('direccion')}}"
+                                value="{{old('direccion') ?? ($escuela ? $escuela->direccion : '')}}"
                                 placeholder="Dirección"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('direccion')
@@ -74,9 +74,9 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="telefono" class="block text-sm font-medium text-gray-700">Telefono
                                     <strong>*</strong></label>
-                                <input type="text" name="telefono" id="telefono"  required
+                                <input type="text" name="telefono" id="telefono" minlength="6" maxlength="10"  required
                                 title="Ingresar telefono"
-                                value="{{old('telefono')}}"
+                                value="{{old('telefono') ?? ($escuela ? $escuela->telefono : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('telefono')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
@@ -86,8 +86,8 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="telefonointerno" class="block text-sm font-medium text-gray-700">Telefono Interno
                                     <strong>*</strong></label>
-                                <input type="text" name="telefonointerno" id="telefonointerno" required
-                                value="{{old('telefonointerno')}}"
+                                <input type="text" name="telefonointerno" id="telefonointerno" minlength="6" maxlength="10" required
+                                value="{{old('telefonointerno') ?? ($escuela ? $escuela->telefonointerno : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('telefonointerno')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
@@ -98,7 +98,7 @@
                                 <label for="email" class="block text-sm font-medium text-gray-700">Correo Electronico
                                     <strong>*</strong></label>
                                 <input type="email" name="email" id="email" required
-                                value="{{old('email')}}"
+                                value="{{old('email') ?? ($escuela ? $escuela->email : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('email')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
@@ -109,7 +109,7 @@
                                 <label for="cantidadAlumnosPromedio" class="block text-sm font-medium text-gray-700">Cantidad de Alumnos
                                     <strong>*</strong></label>
                                 <input type="number" name="cantidadAlumnosPromedio" id="cantidadAlumnosPromedio" required
-                                value="{{old('cantidadAlumnosPromedio')}}"
+                                value="{{old('cantidadAlumnosPromedio') ?? ($escuela ? $escuela->cantidadAlumnosPromedio : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('cantidadAlumnosPromedio')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
@@ -121,7 +121,7 @@
                                 <label for="bilingue" class="block text-sm font-medium text-gray-700">Bilingue
                                     <strong>*</strong></label>
                                 <select name="bilingue"
-                                value="{{old('bilingue')}}"
+                                value="{{old('bilingue') ?? ($escuela ? $escuela->bilingue : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
 
                                     <option value="1"> Si </option>
@@ -139,7 +139,7 @@
                                 <label for="director" class="block text-sm font-medium text-gray-700">Director
                                     <strong>*</strong></label>
                                 <input type="director" name="director" id="director" required
-                                value="{{old('director')}}"
+                                value="{{old('director') ?? ($escuela ? $escuela->direccion : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('director')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
@@ -150,7 +150,7 @@
                                 <label for="orientacion" class="block text-sm font-medium text-gray-700">Orientacion
                                     <strong>*</strong></label>
                                 <input type="orientacion" name="orientacion" id="orientacion" required
-                                value="{{old('orientacion')}}"
+                                value="{{old('orientacion') ?? ($escuela ? $escuela->orientacion : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('orientacion')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
@@ -163,7 +163,7 @@
                                 <label for="user" class="block text-sm font-medium text-gray-700">Encargado
                                     <strong>*</strong></label>
                                 <select name="user_id"
-                                value="{{old('user')}}"
+                                value="{{old('user') ?? ($escuela ? $escuela->user : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @foreach($user as $usuario)
                                     <option value="{{$usuario->id}}"> {{ucwords($usuario->name)}}</option>
@@ -180,7 +180,7 @@
                                 <label for="sector" class="block text-sm font-medium text-gray-700">Sector
                                     <strong>*</strong></label>
                                 <select name="sector_id"
-                                value="{{old('sector')}}"
+                                value="{{old('sector') ?? ($escuela ? $escuela->sector : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @foreach($sectores as $sector)
                                     <option value="{{$sector->id}}"> {{ucwords($sector->nombre)}}</option>
@@ -214,7 +214,7 @@
                                     <strong>*</strong></label>
                                 <select name="nivel_id"
                                 id="nivel"
-                                value="{{old('nivel')}}"
+                                value="{{old('nivel') ?? ($escuela ? $escuela->nivel     : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @foreach($niveles as $nivel)
                                     <option value="{{$nivel->id}}"> {{ ucwords($nivel->nombre)}}</option>

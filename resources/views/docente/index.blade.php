@@ -13,14 +13,20 @@
 
 
 <div class="container mx-auto px-4 sm:px-8">
+
     <div class="py-8">
-      <div>
-        <h2 class="text-2xl font-semibold leading-tight">Profesores</h2>
+
+    <header class="grid grid-cols-12 gap-6 my-4 mx-2">
+
+      <div class="col-span-6">
+        <h2 class="text-2xl font-bold leading-tight">Profesores</h2>
       </div>
-      <div class="text-right">
+
+      <div class="col-span-6 text-right">
         <a class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" href="{{route('docente.create')}}"><i class="fas fa-plus"></i> Nuevo Profesor</a>
       </div>
 
+    </header>
 
       <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
         <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">

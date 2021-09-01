@@ -74,7 +74,7 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="telefono" class="block text-sm font-medium text-gray-700">Telefono
                                     <strong>*</strong></label>
-                                <input type="text" name="telefono" id="telefono"  required
+                                <input type="text" name="telefono" id="telefono" minlength="6" maxlength="10" required
                                 title="Ingresar telefono"
                                 value="{{old('telefono')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
@@ -86,7 +86,7 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="telefonointerno" class="block text-sm font-medium text-gray-700">Telefono Interno
                                     <strong>*</strong></label>
-                                <input type="text" name="telefonointerno" id="telefonointerno" required
+                                <input type="text" name="telefonointerno" id="telefonointerno" minlength="6" maxlength="10" required
                                 value="{{old('telefonointerno')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('telefonointerno')
@@ -318,7 +318,7 @@
                     </div>
 
                     <div class="px-2 py-3 bg-gray-100 text-right sm:px-6 my-2 rounded-b-md">
-                        <a href="{{route('docente.index')}}"
+                        <a href="{{route('escuela.index')}}"
                             class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                             CANCELAR
                         </a>

@@ -14,9 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('plantillageneral.plantillageneral');
+    return view('welcome');
 });
 
-Route::resource('docente', App\Http\Controllers\DocenteController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::resource('escuela',App\Http\Controllers\EscuelaController::class);
+require __DIR__.'/auth.php';
+
+
+Route::get('/inicio', [App\Http\Controllers\HomeController::class,'index'])->name('inicio');
+
+
+//------- Rutas de escuela ---------//
+Route::resource('escuela', App\Http\Controllers\EscuelaController::class);
+
+
+
+//----------- Rutas de docente -----------//
+Route::resource('docente',  App\Http\Controllers\DocenteController::class);

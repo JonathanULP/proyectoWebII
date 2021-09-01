@@ -44,7 +44,6 @@ class Escuela extends Model
     }
 
 
-
     public function ambito(){
 
         return $this->belongsTo('App\Models\Ambito');
