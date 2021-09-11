@@ -22,7 +22,7 @@
       </div>
 
       <div class="col-span-6 text-right">
-        <a class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" href="{{route('escuela.create')}}"><i class="fas fa-plus"></i> Nueva Escuela</a>
+        <a class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white font-medium" href="{{route('escuela.create')}}"><i class="fas fa-plus"></i> Nueva Escuela</a>
       </div>
     </header>
 
@@ -110,7 +110,7 @@
                 </th>
 
                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                 Accciones
+                 Acciones
                 </th>
 
                </tr>

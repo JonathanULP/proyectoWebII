@@ -138,7 +138,7 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="director" class="block text-sm font-medium text-gray-700">Director
                                     <strong>*</strong></label>
-                                <input type="director" name="director" id="director" required
+                                <input type="text" name="director" id="director" required
                                 value="{{old('director')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('director')
@@ -149,7 +149,7 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="orientacion" class="block text-sm font-medium text-gray-700">Orientacion
                                     <strong>*</strong></label>
-                                <input type="orientacion" name="orientacion" id="orientacion" required
+                                <input type="text" name="orientacion" id="orientacion" required
                                 value="{{old('orientacion')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('orientacion')

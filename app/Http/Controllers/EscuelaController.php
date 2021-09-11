@@ -29,7 +29,7 @@ class EscuelaController extends Controller
 
     public function create()
     {
-        $user = User::all();
+        $user = User::all()->where('rol_id','!=','1'); //obtenemos solo los usuarios que tengan un rol de encargado
         $sectores = Sector::all();
         $tipos = Tipo::all();
         $niveles = Nivel::all();

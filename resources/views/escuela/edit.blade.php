@@ -4,8 +4,6 @@
     Escuelas
 @endsection
 
-@section('content')
-
    @section('content')
     <div class="container mx-auto pb-8" id="app" >
 
@@ -14,7 +12,7 @@
         </div>
 
         <header class="grid my-4 mx-2 text-center">
-            <h1 class="text-2xl text-gray-900 italic py-2">Crear Nueva Escuela</h1>
+            <h1 class="text-2xl text-gray-900 italic py-2">Editar Escuela</h1>
         </header>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
@@ -138,8 +136,8 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="director" class="block text-sm font-medium text-gray-700">Director
                                     <strong>*</strong></label>
-                                <input type="director" name="director" id="director" required
-                                value="{{old('director') ?? ($escuela ? $escuela->direccion : '')}}"
+                                <input type="text" name="director" id="director" required
+                                value="{{old('director') ?? ($escuela ? $escuela->director : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('director')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
@@ -149,15 +147,13 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="orientacion" class="block text-sm font-medium text-gray-700">Orientacion
                                     <strong>*</strong></label>
-                                <input type="orientacion" name="orientacion" id="orientacion" required
+                                <input type="text" name="orientacion" id="orientacion" required
                                 value="{{old('orientacion') ?? ($escuela ? $escuela->orientacion : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('orientacion')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
                                 @enderror
                             </div>
-
-
 
                             <div class="md:col-span-6 col-span-12">
                                 <label for="user" class="block text-sm font-medium text-gray-700">Encargado
@@ -318,7 +314,7 @@
                     </div>
 
                     <div class="px-2 py-3 bg-gray-100 text-right sm:px-6 my-2 rounded-b-md">
-                        <a href="{{route('docente.index')}}"
+                        <a href="{{route('escuela.index')}}"
                             class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                             CANCELAR
                         </a>

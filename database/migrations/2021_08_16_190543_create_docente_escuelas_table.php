@@ -18,7 +18,9 @@ class CreateDocenteEscuelasTable extends Migration
             $table->char('division');
             $table->integer('curso');
             $table->string('materia',200);
-            $table->float('horasMensuales');
+            $table->float('horasMensuales')->nullable();
+            $table->unsignedBigInteger('nivel_id');
+            $table->foreign('nivel_id')->references('id')->on('nivels');
             $table->unsignedBigInteger('escuela_id');
             $table->foreign('escuela_id')->references('id')->on('escuelas');
             $table->unsignedBigInteger('docente_id');

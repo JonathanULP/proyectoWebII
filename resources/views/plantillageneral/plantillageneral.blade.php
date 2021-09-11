@@ -4,6 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    {{-- Font Awesome --}}
+
+    <link href="{{mix('/css/app.css')}}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2ff601695b.js" crossorigin="anonymous"></script>
+
+    {{-- JQUERY --}}
     <script
     src="https://code.jquery.com/jquery-3.6.0.js"
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -55,20 +61,22 @@
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Inicio</a>
+              <a href="{{ route('inicio') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Inicio</a>
 
               <a href="{{route('docente.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profesores</a>
 
               <a href="{{route('escuela.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Escuelas</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
+              @admin
+                <a href="{{ route('register') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
+              @endadmin
 
               <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Orden Merito</a>
 
               <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Informes</a>
 
               @encargado
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Planta Docente</a>
+                <a href="{{ route('plantadocente.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Planta Docente</a>
               @endencargado
 
             </div>

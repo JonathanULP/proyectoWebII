@@ -90,7 +90,7 @@
                     <div class=" flex items-center justify-end p-2 border-t border-solid border-gray-200 rounded-b">
 
                         <a name="close-modal"
-                            href="{{ route('docente.index') }}"
+                            href="{{ route('docente.show',$docente) }}"
                             class=" mr-2 sm:mr-4 inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                             Cancelar
                         </a>

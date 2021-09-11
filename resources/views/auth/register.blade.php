@@ -1,10 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -105,7 +101,7 @@
             </div>-->
 
 
-            <label for="password_confirmation" class="block text-sm font-medium text-gray-700 pt-4 pb-1">Contraseña
+            <label for="password_confirmation" class="block text-sm font-medium text-gray-700 pt-4 pb-1">Confirmar Contraseña
 
                 <input type="password" name="password_confirmation" id="password_confirmation" minlength="3" maxlength="30" required
                 title="Ingresar contraseña"
@@ -115,8 +111,13 @@
 
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+               {{--   <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
+                </a>
+                --}}
+
+                <a class="rounded bg-gray-500 hover:bg-gray-700 py-2 px-4 text-white" href="{{ route('inicio') }}">
+                    {{ __('Cancelar') }}
                 </a>
 
                 <x-button class="ml-4 bg-blue-700">

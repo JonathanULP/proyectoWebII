@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         Blade::if('admin', function () {
 
             if(Auth::user()->rol_id == 1)
@@ -37,5 +38,6 @@ class AppServiceProvider extends ServiceProvider
             if(Auth::user()->rol_id == 2)
             return true;
         });
+
     }
 }

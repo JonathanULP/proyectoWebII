@@ -181,15 +181,25 @@
     </div>
 
     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+        @admin
         <a href="{{ route('escuela.index') }}"
             class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
             Regresar
         </a>
+        @endadmin
 
+        @encargado
+        <a href="{{ url()->previous() }}"
+            class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+             Regresar
+        </a>
+        @endencargado
 
+        @admin
         <button class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
              onclick="toggleModal()" title="Eliminar">Eliminar
         </button>
+        @endadmin
 
     </div>
 </div>
@@ -217,7 +227,7 @@
                     <div
                         class=" flex items-center justify-end p-2 border-t border-solid border-gray-200 rounded-b">
                         <a name="close-modal"
-                        href="{{ route('escuela.index') }}"
+                        href="{{  route('escuela.show',$escuela) }}"
                         class=" mr-2 sm:mr-4 inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                         Cancelar
                         </a>

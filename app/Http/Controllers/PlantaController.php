@@ -3,7 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\DocenteEscuela;
+use App\Models\Nivel;
+use App\Models\SituacionRevista;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PlantaDocente\PlantaDocenteStoreRequest;
+use App\Models\Docente;
+use App\Models\Escuela;
+use PhpParser\Comment\Doc;
 
 class PlantaController extends Controller
 {
@@ -14,28 +22,43 @@ class PlantaController extends Controller
      */
     public function index()
     {
-        //
+
+        $id = Auth::user()->id;
+        $escuelas = User::find($id)->escuelas;
+        return view('plantadocente.index',compact('escuelas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index2($escuela)
+    {
+        $niveles = Nivel::all();
+        $situaciones = SituacionRevista::all();
+        $docentes = Docente::all();
+        $docentesEscuelas = DocenteEscuela::all()->where('escuela_id','=',$escuela);
+        return view('plantadocente.index2',compact('docentesEscuelas','escuela','niveles','situaciones','docentes'));
+    }
+
     public function create()
     {
-        //
+        $niveles = Nivel::all();
+        $situaciones = SituacionRevista::all();
+        $docentes = Docente::all();
+        return view('plantadocente.create',compact('niveles','situaciones','docentes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function create2($escuela)
     {
-        //
+        $niveles = Nivel::all();
+        $situaciones = SituacionRevista::all();
+        $docentes = Docente::all();
+        $escuela = Escuela::findorfail($escuela);
+        return view('plantadocente.create',compact('niveles','situaciones','docentes','escuela'));
+    }
+
+
+    public function store(PlantaDocenteStoreRequest $request)
+    {
+        DocenteEscuela::create($request->validated());
+        return back()->with('success','Planta agregada correctamente');
     }
 
     /**
@@ -46,7 +69,7 @@ class PlantaController extends Controller
      */
     public function show(DocenteEscuela $docenteEscuela)
     {
-        //
+        dd('show');
     }
 
     /**
@@ -57,7 +80,7 @@ class PlantaController extends Controller
      */
     public function edit(DocenteEscuela $docenteEscuela)
     {
-        //
+        dd('edit');
     }
 
     /**
@@ -69,7 +92,7 @@ class PlantaController extends Controller
      */
     public function update(Request $request, DocenteEscuela $docenteEscuela)
     {
-        //
+        dd('update');
     }
 
     /**
@@ -80,6 +103,9 @@ class PlantaController extends Controller
      */
     public function destroy(DocenteEscuela $docenteEscuela)
     {
-        //
+         dd('destroy');
     }
+
+
+
 }
