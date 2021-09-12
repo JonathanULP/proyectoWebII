@@ -9,6 +9,10 @@
 
 <div class="bg-white w-full rounded-lg shadow-xl">
 
+    <div class="pt-2">
+        @include('components.alert-messages')
+    </div>
+
     <div class="md:grid md:grid-cols-2 hover:text-blue-900 md:space-y-0 space-y-1 py-7 border-b rounded pl-8">
         <h2 class="text-2xl">
             Profesor: {{ $docente->nombre}} {{$docente->apellido}}
@@ -59,10 +63,11 @@
             Regresar
         </a>
 
-
+        @admin
         <button class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
              onclick="toggleModal()" title="Eliminar">Eliminar
         </button>
+        @endadmin
 
     </div>
 </div>

@@ -15,11 +15,11 @@ use PhpParser\Comment\Doc;
 
 class PlantaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        $this->middleware('encargado');
+    }
     public function index()
     {
 

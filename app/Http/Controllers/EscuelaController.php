@@ -16,9 +16,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\Escuela\EscuelaStoreRequest;
 use App\Http\Requests\Escuela\EscuelaUpdateRequest;
+use GuzzleHttp\Middleware;
 
 class EscuelaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except('index','show');
+    }
 
     public function index()
     {

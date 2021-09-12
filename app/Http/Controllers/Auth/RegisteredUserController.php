@@ -14,11 +14,12 @@ use App\Models\Rol;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Display the registration view.
-     *
-     * @return \Illuminate\View\View
-     */
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function create()
     {
         $roles = Rol::all();

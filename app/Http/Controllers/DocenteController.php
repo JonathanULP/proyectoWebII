@@ -10,6 +10,11 @@ use App\Http\Requests\Docente\DocenteUpdateRequest;
 class DocenteController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('admin')->except('index','show');
+    }
+
     public function index()
     {
         $docentes = Docente::all();

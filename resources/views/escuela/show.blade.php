@@ -9,6 +9,10 @@
 
 <div class="bg-white w-full rounded-lg shadow-xl">
 
+    <div class="pt-2">
+        @include('components.alert-messages')
+    </div>
+
     <div class="md:grid md:grid-cols-2 hover:text-blue-900 md:space-y-0 space-y-1 py-7 border-b rounded pl-8">
         <h2 class="text-2xl">
             Escuela: {{ $escuela->nombre}}
