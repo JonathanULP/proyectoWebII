@@ -45,8 +45,13 @@ Route::resource('docente',  App\Http\Controllers\DocenteController::class);
 Route::resource('plantadocente', App\Http\Controllers\PlantaController::class);
 Route::get('plantadocente/{escuela}/create',[App\Http\Controllers\PlantaController::class,'create2'])->name('plantadocente.create2');
 
+//----------------Orden Merito-----------------------------//
+
 
 });
+
+Route::resource('ordenmerito', App\Http\Controllers\ImportController::class);
+
 
 
 

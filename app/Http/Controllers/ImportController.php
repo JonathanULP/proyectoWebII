@@ -2,83 +2,61 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\OrdenMeritoImport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Importer;
 
 class ImportController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
+
 
     public function index()
     {
-        //
+        dd('index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('ordenmerito.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        //$file = $request->file('file');
+        //Excel::import(new OrdenMeritoImport,$file);
+
+        /*$import = new OrdenMeritoImport();
+        $import->import(request()->file('file'));*/
+
+        $file = $request->file('file');
+        Excel::import(new OrdenMeritoImport,$file);
+
+        return back()->with('success','Importado con exito');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
-        //
+        dd('show');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        dd('edit');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        dd('update');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        dd('destroy');
     }
 }
