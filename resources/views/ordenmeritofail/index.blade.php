@@ -1,7 +1,7 @@
 @extends('plantillageneral.plantillageneral')
 
 @section('titulo')
-    Orden Merito
+    Orden Merito con Fallas
 @endsection
 
 @section('content')
@@ -19,12 +19,7 @@
     <header class="grid grid-cols-12 gap-6 my-4 mx-2">
 
       <div class="col-span-6">
-        <h2 class="text-2xl font-bold leading-tight">Orden de Merito</h2>
-      </div>
-
-      <div class="col-span-6 text-right">
-        <a class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white font-medium" href="{{route('ordenmerito.create')}}"><i class="fas fa-plus"></i> Subir Orden de Merito</a>
-        <a class="rounded bg-red-500 hover:bg-red-700 py-2 px-4 text-white font-medium" href="{{ route('ordenmeritofails.index') }}"><i class="fas fa-exclamation-triangle"></i> OM con Fallas</a>
+        <h2 class="text-2xl font-bold leading-tight">Orden de Merito con Fallas</h2>
       </div>
 
     </header>
@@ -88,9 +83,9 @@
             </thead>
             <tbody >
 
-                @if(count($ordenmeritos)>0)
+                @if(count($ordenmeritosfailures)>0)
 
-                @foreach ($ordenmeritos as $ordenmerito )
+                @foreach ($ordenmeritosfailures as $ordenmerito )
                 <tr>
                     <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm">
                       <div class="flex">
@@ -211,7 +206,7 @@
 
             </tbody>
           </table>
-          {{ $ordenmeritos->links() }}
+          {{ $ordenmeritosfailures->links() }}
         </div>
 
 

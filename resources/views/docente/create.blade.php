@@ -88,6 +88,7 @@
                                 <input type="text" name="categoriaTitulo" id="categoriaTitulo" required
                                 value="{{old('categoriaTitulo')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
+
                                 @error('categoriaTitulo')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
                                 @enderror
@@ -97,13 +98,13 @@
                                 <label for="localidad" class="block text-sm font-medium text-gray-700">Localidad
                                     <strong>*</strong></label>
                                 <select name="localidad_id"
-                                value="{{old('localidad')}}"
+                                value="{{old('localidad_id')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @foreach($localidades as $localidad)
                                     <option value="{{$localidad->id}}"> {{$localidad->nombre}}</option>
                                 @endforeach
-
                                 </select>
+
                                 @error('localidad')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
                                 @enderror

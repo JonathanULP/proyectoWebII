@@ -6,28 +6,20 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class DocenteStoreRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
     public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
+
     public function rules()
     {
         return [
             'nombre' => ['required','min:3','max:20','regex:/^[A-Z]{1}[a-z]+/'],
             'apellido' => ['required','min:3','max:20','regex:/^[A-Z]{1}[a-z]+/'],
             'cuil' => ['required','unique:docentes','regex:/^[0-9]{11}/'],
-            'titulo' => ['required','min:3','max:30'],
+            'titulo' => ['required','min:3','max:30','regex:/^[A-Za-z]+/'],
             'categoriaTitulo' => ['required','numeric'],
             'localidad_id' => ['required','numeric']
         ];
@@ -54,6 +46,7 @@ class DocenteStoreRequest extends FormRequest
 
 
             'titulo.required' => 'El titulo del profesor es obligatorio',
+            'titulo.regex' => 'El titulo no es valido.',
 
             'categoriaTitulo.required' => 'La categoria del titulo es obligatorio',
             'categoriaTitulo.numeric' => 'El valor debe ser numerico'

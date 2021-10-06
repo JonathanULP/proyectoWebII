@@ -17,7 +17,7 @@ class DocenteController extends Controller
 
     public function index()
     {
-        $docentes = Docente::all();
+        $docentes = Docente::cursorPaginate(5);
         return view('docente.index',compact('docentes'));
     }
 

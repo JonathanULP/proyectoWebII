@@ -15,7 +15,7 @@ class ImportController extends Controller
 
     public function index()
     {
-        $ordenmeritos = OrdenMerito::paginate(5);
+        $ordenmeritos = OrdenMerito::cursorPaginate(5);
         return view('ordenmerito.index',compact('ordenmeritos'));
     }
 
