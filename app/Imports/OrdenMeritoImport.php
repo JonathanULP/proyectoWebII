@@ -44,7 +44,7 @@ class OrdenMeritoImport implements ToModel ,WithValidation,WithHeadingRow, Skips
             'apellido' => 'max:50',
             'cargo' => 'max:100',
             'sexo' => 'in:Masculino,Femenino',
-            'incumbencia' => ['nullable', 'regex:/(A1|A2|A3|B1|B2|B3|B4|B5|C1|C2|C3|C4|C5|NULL)/i'],
+            'incumbencia' => ['regex:/(A1|A2|A3|B1|B2|B3|B4|B5|C1|C2|C3|C4|C5|NULL)/i'],
             'cuil' => 'unique:orden_meritos'
         ];
 
@@ -54,7 +54,11 @@ class OrdenMeritoImport implements ToModel ,WithValidation,WithHeadingRow, Skips
     {
         return [
             'region.required' => 'La tupla debe contener una region.',
-            'nivel.regex' => 'Los valores permitidos son: Inicial-Primario-Secundario'
+            'nivel.regex' => 'Los valores permitidos son: Inicial-Primario-Secundario',
+            'cuil.required' => 'El cuil es obligatorio',
+            'cuil.unique' => 'El cuil ya esta en uso',
+            'incumbencia.regex' => 'La incumbencia no es correcta'
+
         ];
     }
 }

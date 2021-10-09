@@ -23,7 +23,7 @@
       </div>
 
       <div class="col-span-6 text-right">
-        <a class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white font-medium" href="{{route('docente.create')}}"><i class="fas fa-plus"></i> Nuevo Profesor</a>
+        <a class="rounded bg-gray-800 hover:bg-gray-900 py-2 px-4 text-white font-medium" href="{{route('docente.create')}}"><i class="fas fa-plus"></i> Nuevo Profesor</a>
       </div>
 
     </header>
@@ -128,7 +128,7 @@
                       <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm">
                         <div class="flex">
 
-                            <a href="{{route('docente.show',$docente)}}" title="Ver Profesor"><i class="fas fa-eye text-blue-500 fa-lg"></i></a>
+                            <a href="{{route('docente.show',$docente)}}" title="Ver Profesor"><i class="fas fa-eye text-blue-600 fa-lg"></i></a>
                             <a href="{{route('docente.edit',$docente->id)}}" title="Editar Profesor"><i class="fas fa-pen text-yellow-500 fa-lg ml-4"></i></a>
 
                         </div>

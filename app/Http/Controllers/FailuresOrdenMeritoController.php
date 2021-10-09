@@ -53,9 +53,10 @@ class FailuresOrdenMeritoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(FailuresOrdenMerito $ordenmeritofail)
     {
-        //
+
+        return view('ordenmeritofail.edit',['orden'=> $ordenmeritofail]);
     }
 
     /**

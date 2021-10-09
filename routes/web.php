@@ -38,7 +38,6 @@ Route::get('escuela/{escuela}/plantadocente',[App\Http\Controllers\PlantaControl
 
 
 //----------- Rutas de docente -----------//
-Route::resource('docente',  App\Http\Controllers\DocenteController::class);
 
 
 //------------ Planta Docente-----------------//
@@ -56,6 +55,7 @@ Route::resource('ordenmeritofails', App\Http\Controllers\FailuresOrdenMeritoCont
 });
 
 
+Route::resource('docente',  App\Http\Controllers\DocenteController::class);
 
 
 

@@ -53,6 +53,11 @@ class ImportController extends Controller
             $failures->titulo1 = $failure->values()["titulo_1"];
             $failures->titulo2 = $failure->values()["titulo_2"];
             $failures->incumbencia = $failure->values()["incumbencia"];
+            foreach($failure->errors() as $errors)
+            {
+                $failures->error = $errors . ' ';
+            }
+
 
             $failures->save();
         }

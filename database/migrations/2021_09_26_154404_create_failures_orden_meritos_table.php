@@ -27,6 +27,7 @@ class CreateFailuresOrdenMeritosTable extends Migration
             $table->string('titulo1')->nullable();
             $table->string('titulo2')->nullable();
             $table->string('incumbencia')->nullable();
+            $table->string('error')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -23,7 +23,7 @@
       </div>
 
       <div class="col-span-6 text-right">
-        <a class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white font-medium" href="{{route('ordenmerito.create')}}"><i class="fas fa-plus"></i> Subir Orden de Merito</a>
+        <a class="rounded bg-gray-800 hover:bg-gray-900 py-2 px-4 text-white font-medium" href="{{route('ordenmerito.create')}}"><i class="fas fa-plus"></i> Subir Orden de Merito</a>
         <a class="rounded bg-red-500 hover:bg-red-700 py-2 px-4 text-white font-medium" href="{{ route('ordenmeritofails.index') }}"><i class="fas fa-exclamation-triangle"></i> OM con Fallas</a>
       </div>
 
