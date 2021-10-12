@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OMStoreRequest;
 use App\Models\FailuresOrdenMerito;
+use App\Models\OrdenMerito;
 use Illuminate\Http\Request;
 
 class FailuresOrdenMeritoController extends Controller
@@ -10,7 +12,7 @@ class FailuresOrdenMeritoController extends Controller
 
     public function index()
     {
-        $ordenmeritosfailures = FailuresOrdenMerito::cursorPaginate(5);
+        $ordenmeritosfailures = FailuresOrdenMerito::paginate(10);
         return view('ordenmeritofail.index',['ordenmeritosfailures' => $ordenmeritosfailures]);
 
     }
@@ -66,9 +68,14 @@ class FailuresOrdenMeritoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(OMStoreRequest $request,FailuresOrdenMerito $ordenmeritofail)
     {
-        //
+        $ordenmeritofail->update($request->validated());
+        OrdenMerito::create($request->validated());
+        $ordenmeritofail->delete();
+
+        return redirect()->route('ordenmerito.index')->with('success','Operación realizada con éxito');
+
     }
 
     /**

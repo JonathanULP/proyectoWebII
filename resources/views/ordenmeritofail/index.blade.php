@@ -95,7 +95,7 @@
                       <div class="flex">
                         <div class="ml-3">
                           <p class="text-gray-900 whitespace-no-wrap">
-                            {{$ordenmerito->region}}
+                            {{$ordenmerito->region ?? 'Sin region definida'}}
                           </p>
                         </div>
                       </div>
@@ -104,7 +104,7 @@
                         <div class="flex">
                           <div class="ml-3">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              {{$ordenmerito->nivel}}
+                              {{$ordenmerito->nivel ?? 'Sin nivel definido'}}
                             </p>
                           </div>
                         </div>
@@ -113,7 +113,7 @@
                         <div class="flex">
                           <div class="ml-3">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              {{$ordenmerito->apellido}}
+                              {{$ordenmerito->apellido ?? 'Sin apellido definido'}}
                             </p>
                           </div>
                         </div>
@@ -122,7 +122,7 @@
                         <div class="flex">
                           <div class="ml-3">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              {{$ordenmerito->nombre}}
+                              {{$ordenmerito->nombre ?? 'Sin nombre definido'}}
                             </p>
                           </div>
                         </div>
@@ -131,7 +131,7 @@
                         <div class="flex items-center">
                           <div class="flex items-center ml-7">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              {{$ordenmerito->cuil}}
+                              {{$ordenmerito->cuil ?? 'Sin cuil definido'}}
                             </p>
                           </div>
                         </div>
@@ -140,7 +140,7 @@
                         <div class="flex">
                           <div class="ml-3">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              {{$ordenmerito->sexo}}
+                              {{$ordenmerito->sexo ?? 'Sin sexo definido'}}
                             </p>
                           </div>
                         </div>
@@ -149,7 +149,7 @@
                         <div class="flex items-center">
                           <div class="flex items-center ml-5">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              {{$ordenmerito->localidad}}
+                              {{$ordenmerito->localidad ?? 'Sin localidad definida'}}
                             </p>
                           </div>
                         </div>
@@ -158,7 +158,7 @@
                         <div class="flex items-center">
                           <div class="flex items-center ml-5">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              {{$ordenmerito->cargo}}
+                              {{$ordenmerito->cargo ?? 'Sin cargo definido'}}
                             </p>
                           </div>
                         </div>
@@ -167,7 +167,7 @@
                         <div class="flex items-center">
                           <div class="flex items-center ml-5">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              {{$ordenmerito->titulo1}}
+                              {{$ordenmerito->titulo1 ?? 'Sin titulo definido'}}
                             </p>
                           </div>
                         </div>
@@ -176,7 +176,7 @@
                         <div class="flex items-center">
                           <div class="flex items-center ml-5">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              {{$ordenmerito->titulo2 ?? 'Sin Asignar'}}
+                              {{$ordenmerito->titulo2 ?? 'Sin titulo definido'}}
                             </p>
                           </div>
                         </div>

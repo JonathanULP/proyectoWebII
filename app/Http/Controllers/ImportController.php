@@ -15,7 +15,7 @@ class ImportController extends Controller
 
     public function index()
     {
-        $ordenmeritos = OrdenMerito::cursorPaginate(5);
+        $ordenmeritos = OrdenMerito::paginate(5);
         return view('ordenmerito.index',compact('ordenmeritos'));
     }
 
@@ -36,11 +36,13 @@ class ImportController extends Controller
         $import = new OrdenMeritoImport();
         $import->import(request()->file('file'));
 
-        $failures = new FailuresOrdenMerito;
 
+        //dd($import->failures());
 
 
         foreach($import->failures() as $failure){
+
+            $failures = new FailuresOrdenMerito;
 
             $failures->region = $failure->values()["region"];
             $failures->nivel = $failure->values()["nivel"];

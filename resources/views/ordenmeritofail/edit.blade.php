@@ -81,7 +81,7 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="cuil" class="block text-sm font-medium text-gray-700">Cuil
                                     <strong>*</strong></label>
-                                <input type="text" name="cuil" id="cuil" required
+                                <input type="text" name="cuil" id="cuil" required maxlength="11"
                                 value="{{old('cuil') ?? ($orden->cuil ? $orden->cuil : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('cuil')
@@ -147,7 +147,7 @@
                             <div class="md:col-span-6 col-span-12">
                                 <label for="titulo2" class="block text-sm font-medium text-gray-700">Titulo 2
                                     <strong>*</strong></label>
-                                <input type="text" name="titulo2" id="titulo2" required
+                                <input type="text" name="titulo2" id="titulo2"
                                 value="{{old('titulo2') ?? ($orden->titulo2 ? $orden->titulo2 : '')}}"
                                 class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
                                 @error('titulo2')
@@ -184,6 +184,8 @@
                 </div>
 
             </form>
+
+            <dropdown></dropdown>
         </div>
     </div>
     @stop

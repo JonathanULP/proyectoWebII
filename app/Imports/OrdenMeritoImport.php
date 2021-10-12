@@ -53,8 +53,8 @@ class OrdenMeritoImport implements ToModel ,WithValidation,WithHeadingRow, Skips
     public function customValidationMessages()
     {
         return [
-            'region.required' => 'La tupla debe contener una region.',
-            'nivel.regex' => 'Los valores permitidos son: Inicial-Primario-Secundario',
+            'region.required' => 'La orden debe contener una región.',
+            'nivel.regex' => 'El nivel no es correcto.Los valores permitidos son: Inicial-Primario-Secundario',
             'cuil.required' => 'El cuil es obligatorio',
             'cuil.unique' => 'El cuil ya esta en uso',
             'incumbencia.regex' => 'La incumbencia no es correcta'
