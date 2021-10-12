@@ -15,7 +15,7 @@ class ImportController extends Controller
 
     public function index()
     {
-        $ordenmeritos = OrdenMerito::paginate(5);
+        $ordenmeritos = OrdenMerito::orderby('created_at','desc')->paginate(10);
         return view('ordenmerito.index',compact('ordenmeritos'));
     }
 
@@ -64,7 +64,7 @@ class ImportController extends Controller
             $failures->save();
         }
 
-        return back()->with('success','Importado con exito');
+        return redirect()->route('ordenmerito.index')->with('success','Importado con exito');
     }
 
 

@@ -52,10 +52,13 @@ Route::resource('ordenmerito', App\Http\Controllers\ImportController::class);
 Route::resource('ordenmeritofails', App\Http\Controllers\FailuresOrdenMeritoController::class);
 
 
+
+
 });
 
 
 Route::resource('docente',  App\Http\Controllers\DocenteController::class);
 
 
-
+//------------Informes-----------------------//
+Route::get('getEscuelas',[App\Http\Controllers\InformesController::class,'getEscuelas'])->name('informes.getEscuelas');
