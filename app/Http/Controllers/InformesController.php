@@ -17,9 +17,9 @@ class InformesController extends Controller
                 ->join('localidads','escuelas.localidad_id','=','localidads.id')
                 ->join('departamentos','localidads.departamento_id','=','departamentos.id')
                 ->join('provincias','departamentos.provincia_id','=','provincias.id')
-                ->groupBy('departamento','localidad')
-                ->get()
-                ->groupBy(['provincia','departamento']);
+                ->groupBy('departamento','localidad','provincia')
+                ->get();
+
 
         dd($data);
 
