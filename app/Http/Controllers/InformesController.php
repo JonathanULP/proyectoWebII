@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DocenteEscuela;
 use App\Models\Escuela;
 use App\Models\OrdenMerito;
 use Illuminate\Support\Facades\DB;
 
 class InformesController extends Controller
 {
-    public function getEscuelas()
+    public function getInformes()
     {
         $escuelas = Escuela::all();
         $total = $escuelas->count();
@@ -27,7 +28,7 @@ class InformesController extends Controller
                 ->count();
 
         $todo = OrdenMerito::count();
-        $promedioDePersonasPorCargo=OrdenMerito::selectRaw('cargo,count(*)/'.$todo.'*100 as Promedio')
+        $promedioDePersonasPorCargo=OrdenMerito::selectRaw('cargo,count(*)/'.$todo.'*100 as promedio')
                                                     ->groupBy('cargo')
                                                     ->get();
 
@@ -35,9 +36,22 @@ class InformesController extends Controller
                                               ->whereNull('cargo')
                                               ->groupBy('localidad')
                                               ->get();
-        dd($inscripcionesSinCargo);
 
-        return response()->json([$personas,$promedioDePersonasPorCargo]);
+
+        $docentesPorEscuelas = DocenteEscuela::selectRaw('escuelas.nombre,count(*) as cantidad')
+                                                ->join('escuelas','escuelas.id','=','docente_escuelas.escuela_id')
+                                                ->groupBy('escuelas.nombre')
+                                                ->get();
+
+        $escuelasPorNivel = DB::table('escuelas')
+                ->selectRaw('count(escuelas.id) as total,nivels.nombre as nivel,ambitos.nombre as ambito')
+                ->join('nivels','escuelas.nivel_id','=','nivels.id')
+                ->join('ambitos','escuelas.ambito_id','=','ambitos.id')
+                ->groupBy('nivel','ambito')
+                ->get();
+        dd($escuelasPorNivel);
+
+        return view('informes.index',compact('escuelasPorPosicion','promedioDePersonasPorCargo','inscripcionesSinCargo','docentesPorEscuelas'));
 
 
     }

@@ -23,7 +23,7 @@
       </div>
 
         <div class="col-span-6 text-right">
-        <a class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white font-medium" id="toggleFilters"><i class="fas fa-plus"></i> AÑADIR</a>
+        <a class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white font-medium cursor-pointer" id="toggleFilters"><i class="fas fa-plus"></i> AÑADIR</a>
       </div>
 
     </header>
@@ -267,7 +267,7 @@
                                 <strong>*</strong></label>
                             <input type="number" name="horasMensuales" id="horasMensuales" required
                             value="{{old('horasMensuales')}}"
-                            class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline">
+                            class="relative outline-none rounded py-1 px-2 w-full h-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline disabled:opacity-50">
                             @error('horasMensuales')
                             <span class=" text-red-500 text-sm">{{ $message }}</span>
                             @enderror
@@ -312,7 +312,7 @@
 
                 <div class="px-2 py-3 bg-gray-100 text-right sm:px-6 my-2 rounded-b-md">
                     <a  id="cancelar"
-                        class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                        class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 cursor-pointer">
                         CANCELAR
                     </a>
 

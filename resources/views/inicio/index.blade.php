@@ -1,7 +1,7 @@
 @extends('plantillageneral.plantillageneral')
 
 @section('titulo')
-    INICIO
+    Inicio
 @endsection
 
 @section('content')

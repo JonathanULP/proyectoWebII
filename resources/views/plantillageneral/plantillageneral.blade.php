@@ -61,7 +61,7 @@
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="{{ route('inicio') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Inicio</a>
+              <a href="{{ route('inicio') }}" class="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Inicio</a>
 
               <a href="{{route('docente.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profesores</a>
 
@@ -73,8 +73,9 @@
 
               <a href="{{ route('ordenmerito.index') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Orden Merito</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Informes</a>
-
+              @admin
+                 <a href="{{ route('informes.getInformes') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Informes</a>
+              @endadmin
               @encargado
                 <a href="{{ route('plantadocente.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Planta Docente</a>
               @endencargado
@@ -89,13 +90,13 @@
 
             <div class="dropdown ">
               <button class=" text-white font-semibold py-2 px-4 rounded inline-flex items-center">
-                <span class="mr-1">{{ Auth::user()->name }}</span>
+                <span class="mr-1 ">{{ Auth::user()->name }}</span>
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
               </button>
               <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
-                <li class="rounded-full"><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Datos</a></li>
+                <li class="rounded-full"><a class="bg-gray-700 text-white hover:bg-gray-900 py-2 px-4 block whitespace-no-wrap" href="#">Datos</a></li>
 
-                <li class="rounded-full"><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="{{ route('logout') }}"
+                <li class="rounded-full"><a class="rounded-b bg-gray-700 text-white hover:bg-gray-900 py-2 px-4 block whitespace-no-wrap" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     Salir</a>

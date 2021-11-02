@@ -61,4 +61,4 @@ Route::resource('docente',  App\Http\Controllers\DocenteController::class);
 
 
 //------------Informes-----------------------//
-Route::get('getEscuelas',[App\Http\Controllers\InformesController::class,'getEscuelas'])->name('informes.getEscuelas');
+Route::get('getInformes',[App\Http\Controllers\InformesController::class,'getInformes'])->name('informes.getInformes');
