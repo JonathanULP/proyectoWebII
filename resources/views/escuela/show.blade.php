@@ -28,7 +28,7 @@
         </p>
     </div>
 
-    <div>
+
         <div class="md:grid md:grid-cols-2 hover:bg-blue-100 md:space-y-0 space-y-1 p-4 border-b rounded">
             <p class="text-gray-600">
                 DIRECCIÓN
@@ -182,7 +182,7 @@
             </p>
         </div>
 
-    </div>
+
 
     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
         @admin

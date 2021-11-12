@@ -292,11 +292,13 @@
                           </div>
                         </div>
                       </td>
-                      <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm">
+                      <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm text-center">
                         <div class="flex">
 
                             <a href="{{route('escuela.show',$escuela)}}" title="Ver Escuela"><i class="fas fa-eye text-blue-600 fa-lg"></i></a>
-                            <a href="{{route('escuela.edit',$escuela->id)}}" title="Editar Escuela"><i class="fas fa-pen text-yellow-500 fa-lg ml-4"></i></a>
+                            @admin
+                                <a href="{{route('escuela.edit',$escuela->id)}}" title="Editar Escuela"><i class="fas fa-pen text-yellow-500 fa-lg ml-4"></i></a>
+                            @endadmin
 
                         </div>
                       </td>

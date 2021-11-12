@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Docente;
 use App\Models\DocenteEscuela;
 use App\Models\Escuela;
 use App\Models\OrdenMerito;
@@ -32,26 +33,27 @@ class InformesController extends Controller
                                                     ->groupBy('cargo')
                                                     ->get();
 
-        $inscripcionesSinCargo=OrdenMerito::selectRaw('localidad,count(*) as PersonasSinCargo')
+        $inscripcionesSinCargos=OrdenMerito::selectRaw('localidad,count(*) as PersonasSinCargo')
                                               ->whereNull('cargo')
                                               ->groupBy('localidad')
                                               ->get();
 
 
-        $docentesPorEscuelas = DocenteEscuela::selectRaw('escuelas.nombre,count(*) as cantidad')
+        $docentesPorEscuelas = DocenteEscuela::selectRaw('escuelas.nombre as escuela,count(*) as cantidad')
                                                 ->join('escuelas','escuelas.id','=','docente_escuelas.escuela_id')
-                                                ->groupBy('escuelas.nombre')
+                                                ->groupBy('escuela')
                                                 ->get();
 
-        $escuelasPorNivel = DB::table('escuelas')
+
+        $escuelasPorNivelYAmbito = DB::table('escuelas')
                 ->selectRaw('count(escuelas.id) as total,nivels.nombre as nivel,ambitos.nombre as ambito')
                 ->join('nivels','escuelas.nivel_id','=','nivels.id')
                 ->join('ambitos','escuelas.ambito_id','=','ambitos.id')
                 ->groupBy('nivel','ambito')
                 ->get();
-        dd($escuelasPorNivel);
+        //dd($escuelasPorNivel);
 
-        return view('informes.index',compact('escuelasPorPosicion','promedioDePersonasPorCargo','inscripcionesSinCargo','docentesPorEscuelas'));
+        return view('informes.index',compact('escuelasPorPosicion','promedioDePersonasPorCargo','inscripcionesSinCargos','docentesPorEscuelas','escuelasPorNivelYAmbito'));
 
 
     }

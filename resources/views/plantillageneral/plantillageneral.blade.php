@@ -94,7 +94,7 @@
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
               </button>
               <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
-                <li class="rounded-full"><a class="bg-gray-700 text-white hover:bg-gray-900 py-2 px-4 block whitespace-no-wrap" href="#">Datos</a></li>
+                <li class="rounded-full"><a class="bg-gray-700 text-white hover:bg-gray-900 py-2 px-4 block whitespace-no-wrap" href="{{ route('user.show',Auth::user()->id) }}">Datos</a></li>
 
                 <li class="rounded-full"><a class="rounded-b bg-gray-700 text-white hover:bg-gray-900 py-2 px-4 block whitespace-no-wrap" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
