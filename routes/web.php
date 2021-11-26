@@ -38,6 +38,7 @@ Route::get('escuela/{escuela}/plantadocente',[App\Http\Controllers\PlantaControl
 
 
 //----------- Rutas de docente -----------//
+Route::resource('docente',  App\Http\Controllers\DocenteController::class);
 
 
 //------------ Planta Docente-----------------//
@@ -53,13 +54,6 @@ Route::resource('ordenmeritofails', App\Http\Controllers\FailuresOrdenMeritoCont
 
 
 
-
-});
-
-
-Route::resource('docente',  App\Http\Controllers\DocenteController::class);
-
-
 //------------Informes-----------------------//
 Route::get('getInformes',[App\Http\Controllers\InformesController::class,'getInformes'])->name('informes.getInformes');
 
@@ -67,3 +61,10 @@ Route::get('getInformes',[App\Http\Controllers\InformesController::class,'getInf
 //---------------Usuario----------------//
 
 Route::get('Usuario/{user}',[App\Http\Controllers\Usuario::class,'show'])->name('user.show');
+
+
+});
+
+
+
+

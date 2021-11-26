@@ -29,13 +29,13 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::if('admin', function () {
 
-            if(Auth::user()->rol_id == 1)
+            if(Auth::user() && Auth::user()->rol_id == 1)
             return true;
         });
 
         Blade::if('encargado', function () {
 
-            if(Auth::user()->rol_id == 2)
+            if(Auth::user() && Auth::user()->rol_id == 2)
             return true;
         });
 
