@@ -13,10 +13,8 @@ use App\Models\TipoSecundario;
 use App\Models\Localidad;
 use App\Models\User;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\Escuela\EscuelaStoreRequest;
 use App\Http\Requests\Escuela\EscuelaUpdateRequest;
-use GuzzleHttp\Middleware;
 
 class EscuelaController extends Controller
 {

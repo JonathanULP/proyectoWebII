@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="px-2 py-3 bg-gray-100 text-right sm:px-6 my-2 rounded-b-md">
-                        <a href="{{route('docente.index')}}"
+                        <a href="{{route('ordenmerito.index')}}"
                             class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                             CANCELAR
                         </a>

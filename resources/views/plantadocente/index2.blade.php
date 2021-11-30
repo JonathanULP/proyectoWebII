@@ -142,7 +142,7 @@
                       <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm">
                         <div class="flex justify-center align-middle">
 
-                            <a href="" title="Ver Planta" class="mr-5"><i class="fas fa-eye text-blue-500 fa-lg"></i></a>
+                            <a href="{{ route('plantadocente.show',['plantadocente'=>$docenteescuela->id]) }}" title="Ver Planta" class="mr-5"><i class="fas fa-eye text-blue-500 fa-lg"></i></a>
 
                         </div>
                       </td>

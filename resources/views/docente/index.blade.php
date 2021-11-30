@@ -126,11 +126,12 @@
                         </div>
                       </td>
                       <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm">
-                        <div class="flex">
+                        <div class="flex justify-center">
 
                             <a href="{{route('docente.show',$docente)}}" title="Ver Profesor"><i class="fas fa-eye text-blue-600 fa-lg"></i></a>
+                            @admin
                             <a href="{{route('docente.edit',$docente->id)}}" title="Editar Profesor"><i class="fas fa-pen text-yellow-500 fa-lg ml-4"></i></a>
-
+                            @endadmin
                         </div>
                       </td>
                 </tr>

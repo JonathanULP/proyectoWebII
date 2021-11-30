@@ -203,8 +203,9 @@
                         <div class="flex ml-5">
 
                             <a href="{{ route('ordenmeritofails.show',$ordenmerito->id) }}" title="Ver"><i class="fas fa-eye text-blue-600 fa-lg"></i></a>
+                            @admin
                             <a href="{{ route('ordenmeritofails.edit',['ordenmeritofail'=>$ordenmerito]) }}" title="Editar"><i class="fas fa-pen text-yellow-500 fa-lg ml-4"></i></a>
-
+                            @endadmin
                         </div>
                       </td>
                 </tr>

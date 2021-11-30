@@ -3,6 +3,8 @@
 namespace App\Http\Requests\PlantaDocente;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
 
 class PlantaDocenteStoreRequest extends FormRequest
 {
@@ -31,7 +33,14 @@ class PlantaDocenteStoreRequest extends FormRequest
             'nivel_id' => ['required','numeric'],
             'escuela_id' => ['required','numeric'],
             'docente_id' => ['required','numeric'],
-            'situacion_revista_id' => ['required','numeric']
+            'situacion_revista_id' => ['required','numeric'],
+            Rule::unique('docente_escuelas')->where(
+                    ['materia', '=', $this->materia],
+                    ['division', '=', $this->division],
+                    ['curso', '=', $this->curso],
+                    ['escuela_id', '=', $this->escuela_id],
+                    ['docente_id', '=', $this->docente_id],
+                )
         ];
     }
 

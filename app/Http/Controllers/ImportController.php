@@ -12,6 +12,10 @@ use Maatwebsite\Excel\Importer;
 class ImportController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('admin')->except('index','show');
+    }
 
     public function index()
     {

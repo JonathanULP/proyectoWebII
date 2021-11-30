@@ -293,7 +293,7 @@
                         </div>
                       </td>
                       <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm text-center">
-                        <div class="flex">
+                        <div class="flex justify-center">
 
                             <a href="{{route('escuela.show',$escuela)}}" title="Ver Escuela"><i class="fas fa-eye text-blue-600 fa-lg"></i></a>
                             @admin

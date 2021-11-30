@@ -57,8 +57,14 @@ class PlantaController extends Controller
 
     public function store(PlantaDocenteStoreRequest $request)
     {
-        DocenteEscuela::create($request->validated());
-        return back()->with('success','Planta agregada correctamente');
+        try{
+            DocenteEscuela::create($request->validated());
+            return back()->with('success','Planta agregada correctamente');
+        }
+        catch (\Exception $e){
+            return back()->with('error','Error al agregar planta');
+        }
+
     }
 
     /**
@@ -67,17 +73,12 @@ class PlantaController extends Controller
      * @param  \App\Models\DocenteEscuela  $docenteEscuela
      * @return \Illuminate\Http\Response
      */
-    public function show(DocenteEscuela $docenteEscuela)
+    public function show(DocenteEscuela $plantadocente)
     {
-        dd('show');
+        return view('plantadocente.show',compact('plantadocente'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\DocenteEscuela  $docenteEscuela
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(DocenteEscuela $docenteEscuela)
     {
         dd('edit');

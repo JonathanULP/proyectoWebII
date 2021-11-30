@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 class FailuresOrdenMeritoController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('admin')->except('index','show');
+    }
+
     public function index()
     {
         $ordenmeritosfailures = FailuresOrdenMerito::paginate(10);
