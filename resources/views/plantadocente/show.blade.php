@@ -13,16 +13,16 @@
         @include('components.alert-messages')
     </div>
 
-    <div class="md:grid md:grid-cols-2 hover:text-blue-900 md:space-y-0 space-y-1 py-7  rounded pl-8">
-        <h2 class="text-2xl">
+    <div class="pl-4 md:grid md:grid-cols-2 hover:text-blue-900 py-7 rounded text-2xl">
+        <p>
             Profesor: {{ $plantadocente->docente->nombre}} {{$plantadocente->docente->apellido}}
-        </h2>
+        </p>
     </div>
 
-    <div class="md:grid md:grid-cols-2 hover:text-blue-900 md:space-y-0 space-y-1 py-7  rounded pl-8">
-        <h2 class="text-2xl">
-           Escuela: {{ $plantadocente->escuela->nombre}}
-        </h2>
+    <div class="pl-4 md:grid md:grid-cols-2 hover:text-blue-900 py-7 rounded text-2xl">
+        <p>
+            Escuela: {{ $plantadocente->escuela->nombre}}
+        </p>
     </div>
 
     <div>
@@ -32,7 +32,7 @@
                 NIVEL
             </p>
             <p>
-                {{ $plantadocente->nivel->nombre}}
+                {{ ucwords($plantadocente->nivel->nombre)}}
                 {{-- $reclamo->created_at->format('d-m-Y  h:i') . 'hs' --}}
             </p>
         </div>
@@ -88,11 +88,9 @@
             Regresar
         </a>
 
-        @admin
         <button class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
              onclick="toggleModal()" title="Eliminar">Eliminar
         </button>
-        @endadmin
 
     </div>
 </div>
@@ -113,14 +111,13 @@
                     </p>
                 </div>
 
-                <form action="" method="post">
+                <form action="{{ route('plantadocente.destroy', $plantadocente ) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <!--footer-->
                     <div class=" flex items-center justify-end p-2 border-t border-solid border-gray-200 rounded-b">
 
                         <a name="close-modal"
-                            href=""
                             class=" mr-2 sm:mr-4 inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                             Cancelar
                         </a>
@@ -143,7 +140,7 @@
 
 @endsection
 
-
+@section('js')
 <script>
     $('button[name="close-modal"]').click(function (e) {
         e.preventDefault();
@@ -154,3 +151,4 @@
 
     }
 </script>
+@endsection

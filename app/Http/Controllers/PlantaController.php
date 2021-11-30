@@ -49,7 +49,7 @@ class PlantaController extends Controller
     {
         $niveles = Nivel::all();
         $situaciones = SituacionRevista::all();
-        $docentes = Docente::all();
+        $docentes = Docente::all(9);
         $escuela = Escuela::findorfail($escuela);
         return view('plantadocente.create',compact('niveles','situaciones','docentes','escuela'));
     }
@@ -67,44 +67,29 @@ class PlantaController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\DocenteEscuela  $docenteEscuela
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(DocenteEscuela $plantadocente)
     {
         return view('plantadocente.show',compact('plantadocente'));
     }
 
 
-    public function edit(DocenteEscuela $docenteEscuela)
+   /*  public function edit(DocenteEscuela $docenteEscuela)
     {
-        dd('edit');
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DocenteEscuela  $docenteEscuela
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, DocenteEscuela $docenteEscuela)
     {
         dd('update');
-    }
+    } */
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\DocenteEscuela  $docenteEscuela
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(DocenteEscuela $docenteEscuela)
+
+    public function destroy(DocenteEscuela $plantadocente)
     {
-         dd('destroy');
+         $plantadocente->delete();
+         return redirect()->route('plantadocente.index')->with('success','Planta eliminada correctamente');
     }
 
 

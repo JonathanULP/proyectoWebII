@@ -26,12 +26,12 @@ class DocenteEscuela extends Model
 
     public function docente()
     {
-        return $this->belongsTo('App\Models\Docente');
+        return $this->belongsTo('App\Models\Docente')->withTrashed();
     }
 
     public function escuela()
     {
-        return $this->belongsTo('App\Models\Escuela');
+        return $this->belongsTo('App\Models\Escuela')->withTrashed();
     }
 
     public function situacion_revista()

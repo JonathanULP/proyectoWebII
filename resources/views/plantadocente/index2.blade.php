@@ -78,9 +78,16 @@
                     <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm">
                         <div class="flex">
                           <div class="ml-3">
+                              @if($docenteescuela->docente->deleted_at)
                             <p class="text-gray-900 whitespace-no-wrap">
                               {{ucwords($docenteescuela->docente->nombre)}}
                             </p>
+                            <p class="text-sm text-center text-red-600">Advertencia: Profesor dado de baja</p>
+                            @else
+                            <p class="text-gray-900 whitespace-no-wrap">
+                                {{ucwords($docenteescuela->docente->nombre)}}
+                            </p>
+                            @endif
                           </div>
                         </div>
                     </td>
