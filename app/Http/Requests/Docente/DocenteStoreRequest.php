@@ -19,7 +19,7 @@ class DocenteStoreRequest extends FormRequest
             'nombre' => ['required','min:3','max:20','regex:/^[A-Z]{1}[a-z]+/'],
             'apellido' => ['required','min:3','max:20','regex:/^[A-Z]{1}[a-z]+/'],
             'cuil' => ['required','unique:docentes','regex:/^[0-9]{11}/'],
-            'titulo' => ['required','min:3','max:30','regex:/^[A-Za-z]+/'],
+            'titulo' => ['required','min:3','max:40','regex:/^[A-Za-z]+/'],
             'categoriaTitulo' => ['required','numeric'],
             'localidad_id' => ['required','numeric']
         ];
@@ -47,6 +47,7 @@ class DocenteStoreRequest extends FormRequest
 
             'titulo.required' => 'El titulo del profesor es obligatorio',
             'titulo.regex' => 'El titulo no es valido.',
+            'titulo.max' => 'El titulo es demasiado largo',
 
             'categoriaTitulo.required' => 'La categoria del titulo es obligatorio',
             'categoriaTitulo.numeric' => 'El valor debe ser numerico'

@@ -45,7 +45,7 @@
 
                 <label for="telefono" class="block text-sm font-medium text-gray-700 pt-4 pb-1">Teléfono
 
-                    <input type="text" name="telefono" id="telefono" required
+                    <input type="text" name="telefono" id="telefono" required maxlength="10"
                     title="Ingresar telefono"
                     value="{{old('telefono')}}"
                     placeholder="Ingresar teléfono"

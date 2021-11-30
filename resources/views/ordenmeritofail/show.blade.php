@@ -1,7 +1,7 @@
 @extends('plantillageneral.plantillageneral')
 
 @section('titulo')
-    Orden de Merito
+    Orden de Meritos Con Fallas
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
 
     <div class="md:grid md:grid-cols-2 hover:text-blue-900 md:space-y-0 space-y-1 py-7 border-b rounded pl-8">
         <h2 class="text-2xl">
-            Profesor:  {{ $ordenmerito->nombre}} {{$ordenmerito->apellido}}
+            Profesor:  {{ $ordenmeritofail->nombre}} {{$ordenmeritofail->apellido}}
         </h2>
     </div>
 
@@ -25,7 +25,7 @@
                 REGIÓN
             </p>
             <p>
-                {{ $ordenmerito->region ?? 'Sin Asignar'}}
+                {{ $ordenmeritofail->region}}
                 {{-- $reclamo->created_at->format('d-m-Y  h:i') . 'hs' --}}
             </p>
         </div>
@@ -34,7 +34,7 @@
                 NIVEL
             </p>
             <p>
-                {{ $ordenmerito->nivel ?? 'Sin Asignar'}}
+                {{ $ordenmeritofail->nivel}}
                 {{-- $reclamo->created_at->format('d-m-Y  h:i') . 'hs' --}}
             </p>
         </div>
@@ -44,7 +44,7 @@
                 CUIL/CUIT
             </p>
             <p>
-                {{ $ordenmerito->cuil ?? 'Sin Asignar'}}
+                {{ $ordenmeritofail->cuil}}
                 {{-- $reclamo->created_at->format('d-m-Y  h:i') . 'hs' --}}
             </p>
         </div>
@@ -53,7 +53,7 @@
                 SEXO
             </p>
             <p>
-                {{ $ordenmerito->sexo ?? 'Sin Asignar' }}
+                {{ $ordenmeritofail->sexo}}
                 {{-- $reclamo->created_at->format('d-m-Y  h:i') . 'hs' --}}
             </p>
         </div>
@@ -62,7 +62,7 @@
                 LOCALIDAD
             </p>
             <p>
-                {{ $ordenmerito->localidad ?? 'Sin Asignar'}}
+                {{ $ordenmeritofail->localidad }}
             </p>
         </div>
         <div class="md:grid md:grid-cols-2 hover:bg-blue-100 md:space-y-0 space-y-1 p-4 border-b rounded">
@@ -70,7 +70,7 @@
                 CARGO
             </p>
             <p>
-                {{ $ordenmerito->cargo ?? 'Sin Asignar' }}
+                {{ $ordenmeritofail->cargo }}
             </p>
         </div>
         <div class="md:grid md:grid-cols-2 hover:bg-blue-100 md:space-y-0 space-y-1 p-4 border-b rounded">
@@ -78,7 +78,7 @@
                 TITULO
             </p>
             <p>
-                {{ $ordenmerito->titulo1 ?? 'Sin Asignar'}}
+                {{ $ordenmeritofail->titulo1}}
             </p>
         </div>
         <div class="md:grid md:grid-cols-2 hover:bg-blue-100 md:space-y-0 space-y-1 p-4 border-b rounded">
@@ -86,7 +86,7 @@
                 TITULO 2
             </p>
             <p>
-                {{ $ordenmerito->titulo2 ?? 'Sin Asignar'}}
+                {{ $ordenmeritofail->titulo2 ?? 'Sin Asignar'}}
             </p>
         </div>
         <div class="md:grid md:grid-cols-2 hover:bg-blue-100 md:space-y-0 space-y-1 p-4 border-b rounded">
@@ -94,9 +94,19 @@
                 INCUMBENCIA
             </p>
             <p>
-                 {{ $ordenmerito->incumbencia}}
+                 {{ $ordenmeritofail->incumbencia}}
             </p>
         </div>
+
+        <div class="md:grid md:grid-cols-2 hover:bg-blue-100 md:space-y-0 space-y-1 p-4 border-b rounded">
+            <p class="text-gray-600">
+                ERRORES
+            </p>
+            <p class="text-red-700 text-lg">
+                 {{ $ordenmeritofail->error}}
+            </p>
+        </div>
+
 
 
     </div>
@@ -107,12 +117,18 @@
             Regresar
         </a>
 
+        @admin
+        <button class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+             onclick="toggleModal()" title="Eliminar">Eliminar
+        </button>
+        @endadmin
+
     </div>
 </div>
 
 {{--MODAL PARA ELIMINAR --}}
 
-{{-- <div role="dialog" id="modal" style="display: none;">
+<div role="dialog" id="modal" style="display: none;">
     <div id="modal-content" style="z-index: 999999;"
         class=" overflow-x-hidden overflow-y-auto fixed inset-0 outline-none focus:outline-none justify-center items-center flex ">
         <div class="absolute my-6 mx-auto align-middle min-w-min">
@@ -126,14 +142,14 @@
                     </p>
                 </div>
 
-                <form action="{{route('ordenmeritofails.destroy',$ordenmerito)}}" method="post">
+                <form action="{{route('ordenmeritofails.destroy',$ordenmeritofail)}}" method="post">
                     @csrf
                     @method('DELETE')
                     <!--footer-->
                     <div class=" flex items-center justify-end p-2 border-t border-solid border-gray-200 rounded-b">
 
                         <a name="close-modal"
-                            href="{{ route('ordenmeritofails.show',$ordenmerito) }}"
+                            href="{{ route('ordenmeritofails.show',$ordenmeritofail) }}"
                             class=" mr-2 sm:mr-4 inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                             Cancelar
                         </a>
@@ -149,7 +165,7 @@
         </div>
     </div>
     <div class="opacity-40 fixed inset-0 z-50 bg-black"></div>
-</div> --}}
+</div>
 
 </div>
 </div>

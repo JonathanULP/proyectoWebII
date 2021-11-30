@@ -18,10 +18,6 @@
 
     <header class="grid grid-cols-12 gap-6 my-4 mx-2">
 
-      <div class="col-span-6">
-        <h2 class="text-2xl font-bold leading-tight">Informes</h2>
-      </div>
-
     </header>
 
       <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-8 overflow-x-auto">
@@ -30,7 +26,7 @@
 
 
             <div class="text-center text-gray-900 font-semibold italic my-3 text-2xl">Escuelas</div>
-          <table class="min-w-full leading-normal">
+          <table class="min-w-full leading-normal shadow-xl">
             <thead>
               <tr>
 
@@ -111,7 +107,7 @@
 
           <div class="text-center text-gray-900 font-semibold italic mt-20 mb-5 text-2xl">Promedio de cargos</div>
 
-          <table class="min-w-full leading-normal ">
+          <table class="min-w-full leading-normal shadow-xl">
             <thead>
               <tr>
 
@@ -170,7 +166,7 @@
 
           <div class="text-center text-gray-900 font-semibold italic mt-20 mb-5 text-2xl">Promedio de Personas sin Cargos</div>
 
-          <table class="min-w-full leading-normal">
+          <table class="min-w-full leading-normal shadow-xl">
             <thead>
               <tr>
 
@@ -231,7 +227,7 @@
 
           <div class="text-center text-gray-900 font-semibold italic mt-20 mb-5 text-2xl">Cantidad de Docentes por Escuelas</div>
 
-          <table class="min-w-full leading-normal">
+          <table class="min-w-full leading-normal shadow-xl">
             <thead>
               <tr>
 
@@ -288,7 +284,7 @@
 
           <div class="text-center text-gray-900 font-semibold italic mt-20 mb-5 text-2xl">Escuelas discriminadas por Nivel y Ambito</div>
 
-          <table class="min-w-full leading-normal ">
+          <table class="min-w-full leading-normal shadow-xl">
             <thead>
               <tr>
 

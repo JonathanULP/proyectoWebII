@@ -23,7 +23,7 @@ class DocenteUpdateRequest extends FormRequest
             'nombre' => ['required','min:3','max:20'],
             'apellido' => 'required|min:3|max:20',
             'cuil' => ['required',Rule::unique('docentes', 'cuil')->ignore($this->docente->id)],
-            'titulo' => 'required|min:3|max:30',
+            'titulo' => 'required|min:3|max:40',
             'categoriaTitulo' => 'required',
             'localidad_id' => 'required'
         ];
@@ -36,6 +36,7 @@ class DocenteUpdateRequest extends FormRequest
             'apellido.required' => 'El apellido del profesor es obligatorio',
             'cuil.required' => 'El cuil del profesor es obligatorio',
             'titulo.required' => 'El titulo del profesor es obligatorio',
+            'titulo.max' => 'El titulo es demasiado largo',
             'cuil.unique' => 'El cuil del profesor ya esta registrado',
 
         ];

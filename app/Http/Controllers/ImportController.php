@@ -68,9 +68,9 @@ class ImportController extends Controller
     }
 
 
-    public function show($id)
+    public function show(OrdenMerito $ordenmerito)
     {
-        return view('ordenmerito.show');
+        return view('ordenmerito.show',compact('ordenmerito'));
     }
 
 

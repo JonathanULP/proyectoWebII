@@ -44,17 +44,11 @@ class FailuresOrdenMeritoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(FailuresOrdenMerito $ordenmeritofail)
     {
-        //
+        return view('ordenmeritofail.show',['ordenmeritofail' => $ordenmeritofail]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(FailuresOrdenMerito $ordenmeritofail)
     {
 
@@ -78,14 +72,11 @@ class FailuresOrdenMeritoController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(FailuresOrdenMerito $ordenmeritofail)
     {
-        //
+        $ordenmeritofail->delete();
+        return redirect()->route('ordenmeritofails.index')->with('success','Eliminación realizada con éxito');
     }
+
 }

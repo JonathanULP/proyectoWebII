@@ -27,7 +27,7 @@ class EscuelaController extends Controller
 
     public function index()
     {
-        $escuelas = Escuela::cursorPaginate(5);
+        $escuelas = Escuela::orderBy('created_at','desc')->paginate(5);
         return view('escuela.index',compact('escuelas'));
     }
 
@@ -51,7 +51,7 @@ class EscuelaController extends Controller
     public function store(EscuelaStoreRequest $request)
     {
         Escuela::create($request->validated());
-        return redirect()->route('escuela.create')->with('success','Escuela creada con éxito');
+        return redirect()->route('escuela.index')->with('success','Escuela creada con éxito');
     }
 
 

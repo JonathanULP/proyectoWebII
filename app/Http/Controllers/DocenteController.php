@@ -17,7 +17,7 @@ class DocenteController extends Controller
 
     public function index()
     {
-        $docentes = Docente::cursorPaginate(5);
+        $docentes = Docente::orderBy('created_at','desc')->cursorPaginate(5);
         return view('docente.index',compact('docentes'));
     }
 
@@ -32,7 +32,7 @@ class DocenteController extends Controller
     public function store(DocenteStoreRequest $request)
     {
         Docente::create($request->validated());
-        return redirect()->route('docente.create')->with('success','Profesor creado con éxito');
+        return redirect()->route('docente.index')->with('success','Profesor creado con éxito');
     }
 
 

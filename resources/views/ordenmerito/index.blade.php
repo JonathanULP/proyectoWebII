@@ -168,7 +168,7 @@
                         <div class="flex items-center">
                           <div class="flex items-center ml-5">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              {{$ordenmerito->titulo1}}
+                              {{$ordenmerito->titulo1 ?? 'Sin Asignar'}}
                             </p>
                           </div>
                         </div>
@@ -194,8 +194,7 @@
                       <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm">
                         <div class="flex ml-5">
 
-                            <a href="" title="Ver Profesor"><i class="fas fa-eye text-blue-500 fa-lg"></i></a>
-                            <a href="" title="Editar Profesor"><i class="fas fa-pen text-yellow-500 fa-lg ml-4"></i></a>
+                            <a href="{{ route('ordenmerito.show',$ordenmerito->id) }}" title="Ver"><i class="fas fa-eye text-blue-500 fa-lg"></i></a>
 
                         </div>
                       </td>

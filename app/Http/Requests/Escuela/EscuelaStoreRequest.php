@@ -21,7 +21,7 @@ class EscuelaStoreRequest extends FormRequest
     {
         return [
 
-            'nombre' => ['required','min:3','min:3','max:30'],
+            'nombre' => ['required','min:3','max:30'],
             'cue' => ['required','min:9','max:9','regex:/^[0-9]+/','unique:escuelas'],
             'direccion' => ['required'],
             'bilingue' => ['required'],

@@ -15,6 +15,7 @@
 
         <header class="grid my-4 mx-2 text-center">
             <h1 class="text-2xl text-gray-900 italic py-2">Corregir Orden de Merito</h1>
+            Errores:   <h6 class="text-center text-red-700 text-sm">{{ $orden->error }}</h6>
         </header>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
@@ -170,7 +171,7 @@
                     </div>
 
                     <div class="px-2 py-3 bg-gray-100 text-right sm:px-6 my-2 rounded-b-md">
-                        <a href=""
+                        <a href="{{ url()->previous() }}"
                             class="sm:mr-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                             CANCELAR
                         </a>
